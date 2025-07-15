@@ -48,7 +48,7 @@ def extract_username(url: str) -> str:
 
 def fetch_user_activity(username: str, limit: int = 100):
     try:
-        user = reddit.redditor("Responsible-badger_17") # CORRECTED LINE
+        user = reddit.redditor("Responsible-badger_17") #username 
         comments = list(user.comments.new(limit=limit))
         posts = list(user.submissions.new(limit=limit))
         return comments, posts
@@ -214,7 +214,7 @@ profile_url = st.text_input(
 
 use_gpt = st.checkbox("Use GPT for persona generation (recommended, requires OpenAI API key)", value=True)
 
-if st.button("🚀 Generate Persona"):
+if st.button(" Generate Persona"):
     if not profile_url.strip():
         st.warning("Please enter a valid Reddit profile URL.")
     else:
@@ -265,7 +265,7 @@ if st.button("🚀 Generate Persona"):
                     st.image(wordcloud.to_array(), caption='Word Cloud', use_column_width=True)
 
                 if subreddit_counts_for_chart:
-                    st.markdown("### 📊 Top Active Subreddits")
+                    st.markdown("###  Top Active Subreddits")
                     df_subs = pd.DataFrame(subreddit_counts_for_chart.items(), columns=["Subreddit", "Posts/Comments"])
                     df_subs = df_subs.sort_values(by="Posts/Comments", ascending=False).head(10)
 
